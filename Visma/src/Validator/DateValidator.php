@@ -5,13 +5,13 @@ namespace App\Validator;
 use DateTime;
 use Exception;
 
-class DateValidator
+class DateValidator implements DateValidatorInterface
 {
     /**
      * @param $date
-     * @return bool|void
+     * @return bool|null
      */
-    public function validateDate($date)
+    public function validateDate($date): ?bool
     {
         if (!$date) {
             return false;
@@ -22,6 +22,7 @@ class DateValidator
         } catch (Exception $e) {
             echo $e->getMessage() . PHP_EOL;
         }
+        return null;
     }
 
 }
